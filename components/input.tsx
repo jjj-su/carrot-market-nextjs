@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactElement } from "react";
+import { InputHTMLAttributes } from "react";
 
 interface InputProps {
   errors?: string[];
@@ -22,8 +22,10 @@ export default function Input({
           {...rest}
         />
       </label>
-      {errors.map(error => (
-        <span className="text-red-500 text-sm">{error}</span>
+      {errors.map((error, index) => (
+        <span key={index} className="text-red-500 text-sm">
+          {error}
+        </span>
       ))}
     </div>
   );
